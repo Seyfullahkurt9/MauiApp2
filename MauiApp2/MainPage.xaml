@@ -22,7 +22,7 @@
                 FontSize="50" 
                 HorizontalOptions="Center"/>
             <Label 
-                Text="20010310026t" 
+                Text="20010310026" 
                 TextColor="White" 
                 FontSize="50" 
                 HorizontalOptions="Center"/>
