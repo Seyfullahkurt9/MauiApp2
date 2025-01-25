@@ -27,7 +27,7 @@
                 TextColor="#BDC3C7" 
                 HorizontalOptions="Center"/>
             <Label 
-                Text="Proje 2 bütünleme" 
+                Text="Proje 3 bütünleme" 
                 FontSize="50" 
                 HorizontalOptions="Center" 
                 TextColor="White"/>
