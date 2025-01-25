@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MauiApp2"
+             x:Class="MauiApp2.Kurlar"
+             Title="Kurlar"
+             BackgroundColor="#2C3E50">
+    <Grid RowDefinitions="Auto,*,Auto" BackgroundColor="#2C3E50">
+        <Grid Grid.Row="0" Margin="20" BackgroundColor="#34495E">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Text="Adı" HorizontalTextAlignment="Center" TextColor="White"/>
+            <Label Grid.Column="1" Text="Alış" HorizontalTextAlignment="Center" TextColor="White"/>
+            <Label Grid.Column="2" Text="Satış" HorizontalTextAlignment="Center" TextColor="White"/>
+            <Label Grid.Column="3" Text="Fark" HorizontalTextAlignment="Center" TextColor="White"/>
+            <Label Grid.Column="4" Text="Yön" HorizontalTextAlignment="Center" TextColor="White"/>
+        </Grid>
+        <CollectionView Grid.Row="1" Margin="20" x:Name="DovizListe" BackgroundColor="#2C3E50">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="*,*,*,*,*" BackgroundColor="#34495E" Margin="0,5" Padding="10">
+                        <Label Grid.Column="0" Text="{Binding Dname}" HorizontalTextAlignment="Center" TextColor="White"/>
+                        <Label Grid.Column="1" Text="{Binding Alış}" HorizontalTextAlignment="Center" TextColor="White"/>
+                        <Label Grid.Column="2" Text="{Binding Satış}" HorizontalTextAlignment="Center" TextColor="White"/>
+                        <Label Grid.Column="3" Text="{Binding Değişim}" HorizontalTextAlignment="Center" TextColor="White"/>
+                        <Image Grid.Column="4" Source="{Binding Yon}" HeightRequest="20" HorizontalOptions="Center"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Button 
+            Grid.Row="2" 
+            Text="Güncelle" 
+            Margin="20" 
+            Clicked="Button_Clicked" 
+            BackgroundColor="#3498DB" 
+            TextColor="White" 
+            CornerRadius="10"/>
+    </Grid>
+</ContentPage>

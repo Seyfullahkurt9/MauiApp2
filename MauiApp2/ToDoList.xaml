@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp2.ToDoList"
+             Title="Yapılacaklar"
+             BackgroundColor="#2C3E50">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Ekle" Clicked="AddButton_Clicked" IconImageSource="add.png"/>
+        <ToolbarItem Text="Yenile" Clicked="RefreshButton_Clicked" IconImageSource="yenileme.png"/>
+        <ToolbarItem Text="Seç" Clicked="SelectButton_Clicked" IconImageSource="seç.png"/>
+        <ToolbarItem Text="Sil" Clicked="DeleteButton_Clicked" IconImageSource="sil.png"/>
+    </ContentPage.ToolbarItems>
+    <StackLayout BackgroundColor="#2C3E50">
+        <ListView 
+            x:Name="YapilacaklarListView" 
+            ItemsSource="{Binding tasks}" 
+            SelectionMode="Single"
+            BackgroundColor="#2C3E50"
+            SeparatorColor="#34495E">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout 
+                                Orientation="Horizontal" 
+                                Padding="10"
+                                BackgroundColor="#34495E"
+                                Margin="5"
+                                >
+                                <CheckBox 
+                                    IsChecked="{Binding IsSelected}" 
+                                    VerticalOptions="Center"
+                                    Color="#3498DB"/>
+                                <StackLayout>
+                                    <Label Text="{Binding Baslik}" FontAttributes="Bold" TextColor="White"/>
+                                    <Label Text="{Binding Yapilacak}" TextColor="#BDC3C7"/>
+                                    <Label Text="{Binding TarihFormatted}" TextColor="#7F8C8D"/>
+                                    <Label Text="{Binding SaatFormatted}" TextColor="#7F8C8D"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackLayout 
+            x:Name="YapilacaklarLayout" 
+            IsVisible="False"
+            BackgroundColor="#34495E"
+            Padding="20"
+            Margin="10">
+            <Entry 
+                Placeholder="Başlık" 
+                x:Name="BaslikEntry" 
+                VerticalOptions="CenterAndExpand"
+                BackgroundColor="#2C3E50"
+                TextColor="White"
+                PlaceholderColor="#BDC3C7"/>
+            <Entry 
+                Placeholder="Yapılacak" 
+                x:Name="YapilacakEntry" 
+                VerticalOptions="CenterAndExpand"
+                BackgroundColor="#2C3E50"
+                TextColor="White"
+                PlaceholderColor="#BDC3C7"/>
+            <DatePicker 
+                x:Name="TarihPicker" 
+                HorizontalOptions="CenterAndExpand"
+                TextColor="White"/>
+            <TimePicker 
+                x:Name="SaatPicker" 
+                Format="HH:mm" 
+                HorizontalOptions="CenterAndExpand"
+                TextColor="White"/>
+            <Button 
+                Text="Kaydet" 
+                Clicked="KaydetButton_Clicked"
+                BackgroundColor="#3498DB"
+                TextColor="White"
+                CornerRadius="10"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
